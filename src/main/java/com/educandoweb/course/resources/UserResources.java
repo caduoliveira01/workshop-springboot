@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/tb_users")
+@RequestMapping(value = "users")
 public class UserResources {
     @Autowired
     private UserService service;
