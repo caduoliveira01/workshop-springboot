@@ -1,7 +1,7 @@
 package com.educandoweb.course.resources;
 
-import com.educandoweb.course.entities.User;
-import com.educandoweb.course.services.UserService;
+import com.educandoweb.course.entities.Category;
+import com.educandoweb.course.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,22 +12,22 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/users")
-public class UserResources {
+@RequestMapping(value = "/categories")
+public class CategoryResources {
     @Autowired
-    private UserService service;
+    private CategoryService service;
 
     @GetMapping
-    public ResponseEntity<List<User>> findAll(){
+    public ResponseEntity<List<Category>> findAll(){
 
-        List<User> list = service.findAll();
+        List<Category> list = service.findAll();
 
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping(value ="/{id}")
-    public ResponseEntity<User> findById(@PathVariable Long id){
-        User obj = service.findById(id);
+    public ResponseEntity<Category> findById(@PathVariable Long id){
+        Category obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
     }
 }
